@@ -1,0 +1,15 @@
+#!name = WeTalk 自动化签到+视频奖励
+#!desc = WeTalk 自动签到 + 视频奖励，支持多账号
+#!author = TG@ZenMoFiShi
+#!date = 2026-04-21
+#!version = 1.0
+#!system = iOS
+
+[rewrite]
+^https:\/\/api\.wetalkapp\.com\/app\/queryBalanceAndBonus script-request-header https://raw.githubusercontent.com/ZenmoFeiShi/Qx/refs/heads/main/WeTalk.loon.js
+
+[script]
+cron "20 8,20 * * *" script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/refs/heads/main/WeTalk.loon.js, tag=WeTalk签到
+
+[mitm]
+hostname = api.wetalkapp.com
